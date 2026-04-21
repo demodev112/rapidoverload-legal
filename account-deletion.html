@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계정 및 데이터 삭제 안내 – 급진적 코치</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --muted: #888;
+      --text: #d4d4d4;
+      --heading: #f5f5f5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0 32px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .brand {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .meta { font-size: 12px; color: var(--muted); }
+
+    .section {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sec-num {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      font-weight: 400;
+    }
+
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ol { padding-left: 20px; margin: 10px 0 14px; }
+    li { margin-bottom: 8px; }
+
+    .step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: steps;
+    }
+
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-list li:last-child { border-bottom: none; }
+
+    .step-num {
+      min-width: 26px;
+      height: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .step-num::before { content: counter(steps); }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    .data-table th {
+      background: var(--surface);
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .bullet-list li {
+      padding: 8px 0 8px 16px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      font-size: 13px;
+    }
+
+    .bullet-list li:last-child { border-bottom: none; }
+
+    .bullet-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    .email-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    .email-box .row {
+      display: flex;
+      gap: 12px;
+      padding: 6px 0;
+    }
+
+    .email-box .label {
+      min-width: 120px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .email-box a { color: var(--text); }
+
+    .notice-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid #555;
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .timeline-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+    }
+
+    .timeline-card .duration {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+
+    .timeline-card .desc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+
+    .contact-block p { margin-bottom: 6px; }
+    .contact-block a { color: var(--text); }
+
+    .footer {
+      text-align: center;
+      padding: 40px 0;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 22px; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .email-box .row { flex-direction: column; gap: 2px; }
+      .email-box .label { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="brand">급진적과부하 주식회사</div>
+    <h1>계정 및 데이터 삭제 안내</h1>
+    <div class="meta">서비스명: 급진적 코치 &nbsp;·&nbsp; 최종 업데이트: 2026년 4월 21일</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 1. 앱 내 삭제 -->
+  <div class="section">
+    <h2><span class="sec-num">01</span> 앱 내에서 직접 삭제</h2>
+    <ul class="step-list">
+      <li><div class="step-num"></div><div>급진적 코치 앱에 로그인합니다.</div></li>
+      <li><div class="step-num"></div><div>하단 <strong>[설정]</strong> 메뉴로 이동합니다.</div></li>
+      <li><div class="step-num"></div><div><strong>[계정 관리]</strong> → <strong>[계정 삭제]</strong>를 선택합니다.</div></li>
+      <li><div class="step-num"></div><div>안내에 따라 확인 절차를 완료하면 즉시 탈퇴가 접수됩니다.</div></li>
+    </ul>
+  </div>
+
+  <!-- 2. 이메일 요청 -->
+  <div class="section">
+    <h2><span class="sec-num">02</span> 앱 외부에서 삭제 요청</h2>
+    <p>앱에 로그인할 수 없거나 앱을 삭제한 경우, 아래 이메일로 탈퇴를 요청하실 수 있습니다.</p>
+    <div class="email-box">
+      <div class="row"><span class="label">보내는 주소</span><span>가입 시 사용한 이메일</span></div>
+      <div class="row"><span class="label">받는 주소</span><a href="mailto:ro@rapidoverload.com">ro@rapidoverload.com</a></div>
+      <div class="row"><span class="label">제목</span><span>[탈퇴 요청] 계정 및 데이터 삭제</span></div>
+      <div class="row"><span class="label">본문</span><span>가입 이메일 및 탈퇴 사유(선택)</span></div>
+    </div>
+    <div class="notice-box">
+      본인 확인을 위해 가입 시 사용한 이메일 주소로 보내주셔야 합니다. 다른 이메일로 요청 시 추가 확인 절차가 필요할 수 있습니다.
+    </div>
+  </div>
+
+  <!-- 3. 삭제 데이터 -->
+  <div class="section">
+    <h2><span class="sec-num">03</span> 삭제되는 데이터</h2>
+    <p>탈퇴 완료 시 아래 데이터가 즉시 삭제됩니다.</p>
+    <ul class="bullet-list">
+      <li>계정 프로필 (이메일, 이름, 성별, 신체 정보)</li>
+      <li>운동 기록 (루틴, 세트, 무게, 반복 수, 피드백)</li>
+      <li>온보딩 응답 및 선호 설정</li>
+      <li>구독 및 결제 수단 정보</li>
+      <li>앱 사용 이력 및 접속 로그 중 개인 식별 가능 항목</li>
+    </ul>
+  </div>
+
+  <!-- 4. 법령 보존 -->
+  <div class="section">
+    <h2><span class="sec-num">04</span> 관련 법령에 따라 보존되는 데이터</h2>
+    <p>다음 항목은 관계 법령에 따라 일정 기간 보존된 후 파기됩니다.</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>보존 기간</th>
+          <th>근거 법령</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>계약 또는 청약 철회 기록</td>
+          <td>5년</td>
+          <td>전자상거래 등에서의 소비자보호에 관한 법률</td>
+        </tr>
+        <tr>
+          <td>대금 결제 및 재화 공급 기록</td>
+          <td>5년</td>
+          <td>동법</td>
+        </tr>
+        <tr>
+          <td>소비자 불만 또는 분쟁 처리 기록</td>
+          <td>3년</td>
+          <td>동법</td>
+        </tr>
+        <tr>
+          <td>표시·광고 기록</td>
+          <td>6개월</td>
+          <td>동법</td>
+        </tr>
+        <tr>
+          <td>접속 로그, IP 주소</td>
+          <td>3개월</td>
+          <td>통신비밀보호법</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. 처리 기간 -->
+  <div class="section">
+    <h2><span class="sec-num">05</span> 처리 기간</h2>
+    <div class="timeline-grid">
+      <div class="timeline-card">
+        <div class="duration">7 영업일 이내</div>
+        <div class="desc">요청 접수 확인 및 이메일 회신</div>
+      </div>
+      <div class="timeline-card">
+        <div class="duration">30일 이내</div>
+        <div class="desc">계정 및 데이터 삭제 완료</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. 구독 유의사항 -->
+  <div class="section">
+    <h2><span class="sec-num">06</span> 구독 중인 경우 유의사항</h2>
+    <p>현재 유료 구독 중이신 경우, 탈퇴 시 정기결제가 자동으로 취소됩니다.</p>
+    <div class="notice-box">
+      이미 결제된 기간의 환불은 각 스토어(Google Play / Apple App Store) 정책을 따릅니다. 자세한 환불 규정은 앱 내 구독 관리 화면 또는 이용약관을 참고해주세요.
+    </div>
+  </div>
+
+  <!-- 7. 문의 -->
+  <div class="section">
+    <h2><span class="sec-num">07</span> 문의</h2>
+    <div class="contact-block">
+      <p><strong>서비스명</strong>: 급진적 코치</p>
+      <p><strong>운영사</strong>: 급진적과부하 주식회사</p>
+      <p><strong>문의 이메일</strong>: <a href="mailto:ro@rapidoverload.com">ro@rapidoverload.com</a></p>
+    </div>
+    <p style="margin-top:16px; font-size:12px; color:var(--muted);">본 페이지는 Google Play Console 및 Apple App Store 데이터 안전 섹션 요구사항에 따라 공개됩니다.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p>© 2026 급진적과부하 주식회사 · ro@rapidoverload.com</p>
+  </div>
+</div>
+
+</body>
+</html>
