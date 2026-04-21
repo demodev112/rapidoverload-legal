@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보처리방침 – 급진적 코치</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --muted: #888;
+      --text: #d4d4d4;
+      --heading: #f5f5f5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0 32px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .brand {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .meta { font-size: 12px; color: var(--muted); }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin: 36px 0;
+    }
+
+    .toc-title {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    .toc li a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .toc li a:hover { color: var(--heading); }
+
+    .section {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .art-num {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      font-weight: 400;
+    }
+
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ol, ul { padding-left: 20px; margin: 10px 0 14px; }
+    li { margin-bottom: 6px; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    .data-table th {
+      background: var(--surface);
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text);
+    }
+
+    .data-table tr:nth-child(even) td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .provider-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+
+    .provider-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+
+    .provider-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .provider-items li {
+      font-size: 12px;
+      color: var(--text);
+      padding: 2px 0 2px 10px;
+      margin: 0;
+      position: relative;
+    }
+
+    .provider-items li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    .provider-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 7px;
+      font-size: 11px;
+      color: var(--muted);
+      margin: 2px 2px 2px 0;
+    }
+
+    .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid #555;
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 13px;
+    }
+
+    .contact-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+
+    .contact-block p { margin-bottom: 6px; }
+    .contact-block a { color: var(--text); }
+
+    .footer {
+      text-align: center;
+      padding: 40px 0;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .toc ol { grid-template-columns: 1fr; }
+      h1 { font-size: 22px; }
+      .data-table { font-size: 12px; }
+      .data-table th, .data-table td { padding: 8px 10px; }
+      .provider-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="brand">급진적과부하 주식회사</div>
+    <h1>개인정보처리방침</h1>
+    <div class="meta">서비스명: 급진적 코치 &nbsp;·&nbsp; 시행일: 2026년 4월 7일</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <div class="toc-title">목차</div>
+    <ol>
+      <li><a href="#sec1">1. 수집하는 개인정보 항목</a></li>
+      <li><a href="#sec2">2. 개인정보 수집 및 이용 목적</a></li>
+      <li><a href="#sec3">3. 개인정보의 제3자 제공</a></li>
+      <li><a href="#sec4">4. 개인정보 처리의 위탁 및 외부 서비스 이용</a></li>
+      <li><a href="#sec5">5. 개인정보 보관 및 파기</a></li>
+      <li><a href="#sec6">6. 이용자의 권리</a></li>
+      <li><a href="#sec7">7. 개인정보 보호를 위한 조치</a></li>
+      <li><a href="#sec8">8. 개인정보 보호책임자</a></li>
+      <li><a href="#sec9">9. 시행일</a></li>
+    </ol>
+  </div>
+
+  <!-- ===== 1. 수집 항목 ===== -->
+  <div class="section" id="sec1">
+    <h2><span class="art-num">§ 01</span> 수집하는 개인정보 항목</h2>
+    <p>회사는 서비스 제공을 위해 다음과 같은 개인정보를 수집합니다.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>수집 방법</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>이메일 주소</strong></td>
+          <td>소셜 로그인(Google·카카오·Apple) 연동 시 수신</td>
+          <td>Apple의 경우 '이메일 가리기' 선택 시 가상 이메일 주소가 전달될 수 있음</td>
+        </tr>
+        <tr>
+          <td><strong>닉네임/이름</strong></td>
+          <td>소셜 로그인 시 제공되는 프로필명 또는 회원가입 중 직접 입력</td>
+          <td>Apple 로그인은 최초 1회만 이름을 제공함</td>
+        </tr>
+        <tr>
+          <td><strong>성별</strong></td>
+          <td>회원가입 또는 온보딩 과정 중 사용자 직접 입력</td>
+          <td>개인 맞춤형 루틴 제공을 위해 수집</td>
+        </tr>
+        <tr>
+          <td><strong>운동 기록</strong></td>
+          <td>사용자 직접 입력</td>
+          <td>세트, 반복 횟수, 중량, 난이도(RPE/RIR) 등 포함</td>
+        </tr>
+        <tr>
+          <td><strong>체중</strong></td>
+          <td>사용자 직접 입력</td>
+          <td>맨몸운동 통계 및 분석에 활용</td>
+        </tr>
+        <tr>
+          <td><strong>결제 정보</strong></td>
+          <td>Google Play 또는 Apple App Store 인앱 결제 시스템을 통해 처리</td>
+          <td>카드 등 결제 수단은 앱이 직접 수집·저장하지 않으며 각 플랫폼이 처리함</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>소셜 로그인 제공자별로 앱이 수신할 수 있는 정보 범위는 아래와 같습니다. 실제 수신 범위는 사용자의 동의 여부에 따라 달라질 수 있습니다.</p>
+
+    <div class="provider-grid">
+      <div class="provider-card">
+        <div class="provider-name">Google 로그인</div>
+        <ul class="provider-items">
+          <li>이메일 주소</li>
+          <li>이름(프로필명)</li>
+          <li>프로필 사진 URL</li>
+          <li>고유 식별자(sub)</li>
+        </ul>
+        <div class="provider-note">앱은 이메일·이름만 저장하며 그 외 정보는 활용하지 않습니다.</div>
+      </div>
+      <div class="provider-card">
+        <div class="provider-name">카카오 로그인</div>
+        <ul class="provider-items">
+          <li>이메일 주소 (동의 시)</li>
+          <li>닉네임</li>
+          <li>프로필 사진 URL</li>
+          <li>고유 식별자(id)</li>
+        </ul>
+        <div class="provider-note">앱은 이메일·닉네임만 저장하며 그 외 정보는 활용하지 않습니다.</div>
+      </div>
+      <div class="provider-card">
+        <div class="provider-name">Apple 로그인</div>
+        <ul class="provider-items">
+          <li>이메일 또는 가상 이메일</li>
+          <li>이름 (최초 로그인 1회만)</li>
+          <li>고유 식별자(user)</li>
+        </ul>
+        <div class="provider-note">프로필 사진을 제공하지 않으며, 사용자는 이메일 가리기를 선택할 수 있습니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 2. 이용 목적 ===== -->
+  <div class="section" id="sec2">
+    <h2><span class="art-num">§ 02</span> 개인정보 수집 및 이용 목적</h2>
+    <p>회사는 수집한 개인정보를 다음의 목적을 위해 이용합니다.</p>
+    <ul>
+      <li><strong>계정 생성 및 관리</strong>: 이메일을 기반으로 사용자 계정을 생성하고 로그인 상태를 유지합니다.</li>
+      <li><strong>서비스 제공 및 개인화</strong>: 닉네임을 활용하여 사용자 식별 및 UI 표시를 제공합니다.</li>
+      <li><strong>개인 맞춤형 운동 코칭</strong>: 성별 및 체중 데이터를 기반으로 성별·체형에 적합한 맞춤형 운동 루틴을 추천하고 자동 조정합니다.</li>
+      <li><strong>운동 분석 및 퍼포먼스 코칭</strong>: 운동 기록(세트, 반복 횟수, 중량, RPE/RIR) 및 체중 데이터를 기반으로 퍼포먼스 분석, 통계 제공, 맞춤형 루틴 자동 조정 및 추천 기능을 제공합니다.</li>
+    </ul>
+  </div>
+
+  <!-- ===== 3. 제3자 제공 ===== -->
+  <div class="section" id="sec3">
+    <h2><span class="art-num">§ 03</span> 개인정보의 제3자 제공</h2>
+    <p>회사는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 다만, 아래의 경우는 예외로 합니다.</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>제공 대상</th>
+          <th>제공 정보</th>
+          <th>제공 목적</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Google</strong></td>
+          <td>이메일 주소, 인증 토큰</td>
+          <td>Google OAuth를 통한 사용자 인증</td>
+        </tr>
+        <tr>
+          <td><strong>Kakao</strong></td>
+          <td>이메일 주소(동의 시), 닉네임, 인증 토큰</td>
+          <td>카카오 로그인을 통한 사용자 인증</td>
+        </tr>
+        <tr>
+          <td><strong>Apple</strong></td>
+          <td>이메일 주소(또는 가상 이메일), 이름(최초 1회), 인증 토큰</td>
+          <td>Apple Sign-In을 통한 사용자 인증</td>
+        </tr>
+        <tr>
+          <td><strong>Google Play</strong></td>
+          <td>구독 상태, 결제 관련 정보</td>
+          <td>Android 인앱 결제 처리</td>
+        </tr>
+        <tr>
+          <td><strong>Apple App Store</strong></td>
+          <td>구독 상태, 결제 관련 정보</td>
+          <td>iOS 인앱 결제 처리</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box">
+      회사는 광고, 마케팅 또는 기타 목적을 위해 개인정보를 제3자에게 제공하지 않습니다.
+    </div>
+  </div>
+
+  <!-- ===== 4. 위탁 ===== -->
+  <div class="section" id="sec4">
+    <h2><span class="art-num">§ 04</span> 개인정보 처리의 위탁 및 외부 서비스 이용</h2>
+    <p>회사는 서비스 제공을 위해 아래와 같은 외부 서비스를 이용할 수 있습니다. 이 과정에서 서비스 제공에 필요한 최소한의 정보가 해당 서비스에 전달될 수 있습니다.</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>외부 서비스</th>
+          <th>이용 목적</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag">Google</span></td>
+          <td>사용자 인증(Google OAuth 로그인)</td>
+        </tr>
+        <tr>
+          <td><span class="tag">Kakao</span></td>
+          <td>사용자 인증(카카오 로그인)</td>
+        </tr>
+        <tr>
+          <td><span class="tag">Apple</span></td>
+          <td>사용자 인증(Apple Sign-In)</td>
+        </tr>
+        <tr>
+          <td><span class="tag">Google Play</span></td>
+          <td>Android 인앱 결제 처리</td>
+        </tr>
+        <tr>
+          <td><span class="tag">Apple App Store</span></td>
+          <td>iOS 인앱 결제 처리</td>
+        </tr>
+        <tr>
+          <td><span class="tag">AWS</span></td>
+          <td>서버/파일 호스팅</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== 5. 보관 및 파기 ===== -->
+  <div class="section" id="sec5">
+    <h2><span class="art-num">§ 05</span> 개인정보 보관 및 파기</h2>
+    <p>수집된 개인정보(이메일, 닉네임, 성별, 운동 기록, 체중 등)는 계정 유지 기간 동안 보관됩니다.</p>
+    <p>사용자가 계정을 탈퇴할 경우, 개인정보는 지체 없이 삭제됩니다. 단, 관련 법령에 따라 일정 기간 보관이 필요한 경우 해당 기간 동안 보관할 수 있습니다.</p>
+  </div>
+
+  <!-- ===== 6. 이용자의 권리 ===== -->
+  <div class="section" id="sec6">
+    <h2><span class="art-num">§ 06</span> 이용자의 권리</h2>
+    <p>이용자는 언제든지 자신의 개인정보에 대해 다음과 같은 권리를 행사할 수 있습니다.</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>열람</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>이메일</td>
+          <td>✓ 가능</td>
+          <td>✓ 가능</td>
+          <td>계정 탈퇴 시 삭제</td>
+        </tr>
+        <tr>
+          <td>닉네임</td>
+          <td>✓ 가능</td>
+          <td>— 기능상 불가</td>
+          <td>계정 탈퇴 시 삭제</td>
+        </tr>
+        <tr>
+          <td>성별</td>
+          <td>✓ 가능</td>
+          <td>— 기능상 불가</td>
+          <td>계정 탈퇴 시 삭제</td>
+        </tr>
+        <tr>
+          <td>운동 기록</td>
+          <td>✓ 가능</td>
+          <td>— 기능상 불가</td>
+          <td>계정 탈퇴 시 삭제</td>
+        </tr>
+        <tr>
+          <td>체중</td>
+          <td>✓ 가능</td>
+          <td>— 기능상 불가</td>
+          <td>계정 탈퇴 시 삭제</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>이용자는 계정 탈퇴를 통해 개인정보 삭제를 요청할 수 있으며, 탈퇴 시 위 모든 개인정보는 즉시 삭제됩니다.</p>
+  </div>
+
+  <!-- ===== 7. 보호 조치 ===== -->
+  <div class="section" id="sec7">
+    <h2><span class="art-num">§ 07</span> 개인정보 보호를 위한 조치</h2>
+    <p>회사는 개인정보 보호를 위해 합리적인 기술적·관리적 보호조치를 적용하고 있습니다.</p>
+  </div>
+
+  <!-- ===== 8. 책임자 ===== -->
+  <div class="section" id="sec8">
+    <h2><span class="art-num">§ 08</span> 개인정보 보호책임자</h2>
+    <p>개인정보 처리와 관련된 문의는 아래 연락처로 주시기 바랍니다.</p>
+    <div class="contact-block">
+      <p><strong>회사명</strong>: 급진적과부하 주식회사</p>
+      <p><strong>이메일</strong>: <a href="mailto:ro@rapidoverload.com">ro@rapidoverload.com</a></p>
+    </div>
+  </div>
+
+  <!-- ===== 9. 시행일 ===== -->
+  <div class="section" id="sec9">
+    <h2><span class="art-num">§ 09</span> 시행일</h2>
+    <p>본 개인정보처리방침은 <strong>2026년 4월 7일</strong>부터 적용됩니다.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p>© 2026 급진적과부하 주식회사 · 문의: ro@rapidoverload.com</p>
+    <p style="margin-top:6px;">본 개인정보처리방침은 2026년 4월 7일부터 시행됩니다.</p>
+  </div>
+</div>
+
+</body>
+</html>
